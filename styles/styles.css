@@ -1,0 +1,686 @@
+/* General Reset */
+
+/* Paleta de culori:
+ #364F6B; #3FC1C9, #F5F5F5, #FC5185
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #F5F5F5;
+    color: #364F6B;
+    line-height: 1.6;
+}
+
+/* Header */
+.header {
+    position: relative;
+    height: 100vh; 
+    background: url('../images/header.jpg') center/cover no-repeat; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+}
+
+.header .content {
+    position: relative;
+    text-align: center;
+    color: #FFFFFF;
+    z-index: 2;
+    padding: 20px;
+}
+
+.header .content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.header .content .header-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    color: #FFFFFF;
+    background-color: #FC5185;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.header .content .header-button:hover {
+    background-color: #3FC1C9;
+    transform: scale(1.1);
+}
+
+.header-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+    background: linear-gradient(90deg, #3FC1C9, #FC5185);
+    text-decoration: none;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(252, 81, 133, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.header-button:hover {
+    background: linear-gradient(90deg, #FC5185, #3FC1C9);
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(252, 81, 133, 0.5);
+}
+
+.header-button:active {
+    transform: scale(1.05);
+    box-shadow: 0 3px 10px rgba(252, 81, 133, 0.3);
+}
+
+/* End Header */
+
+/* Dropdown menu */
+
+.menu-icon {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #3FC1C9, #FC5185); /* Gradient pentru fundal */
+    color: white;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Formă circulară */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Umbră modernă */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Tranziții subtile */
+    z-index: 1001;
+}
+
+.menu-icon:hover {
+    transform: scale(1.1); /* Mărire subtilă */
+}
+
+.dropdown-menu {
+    position: fixed;
+    right: 80px; /* Poziționat în stânga butonului */
+    bottom: 20px; /* Aliniat cu butonul */
+    background: #3FC1C9; /* Fundal albastru închis */
+    color: white;
+    padding: 15px;
+    border-radius: 12px; /* Colțuri rotunjite */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0; /* Invizibil inițial */
+    visibility: hidden; /* Ascuns inițial */
+    transform: translateX(20px); /* Poziționat ușor în afara ecranului */
+    transition: all 0.3s ease; /* Tranziție lină */
+    z-index: 1001; /* Deasupra elementelor */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Umbră subtilă */
+}
+
+.menu-icon.active + .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.dropdown-menu a {
+    text-decoration: none;
+    color: white; 
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 8px; 
+    background: #3FC1C9; 
+}
+
+.dropdown-menu a:hover {
+    background: #364F6B; 
+    color: white; 
+    transform: translateX(-5px); 
+}
+
+/* End Dropdown menu */
+
+/* Dots Navigation */
+.dots-navigation {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 15px; 
+    z-index: 1000;
+}
+
+.dots-navigation .dot {
+    width: 15px;
+    height: 15px;
+    background-color: #FC5185;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.dots-navigation .dot.active {
+    background-color: #3FC1C9;
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(63, 193, 201, 0.8);
+}
+
+/* End Dots Navigation */
+
+/* --------------------------------------------- General Sections  ------------------------------------------------------ */
+
+section {
+    margin: 20px auto;
+    padding: 24px;
+    max-width: 800px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    font-family: 'Lora', serif;
+    margin-bottom: 10px;
+    color: #364F6B;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+section p {
+    font-family: 'Merriweather', serif;
+    color: #364F6B;
+    font-size: 1rem;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h1 {
+    font-size: 2.5rem;
+    color: #364F6B;
+    margin-bottom: 10px;
+}
+
+.section-header .section-subtitle {
+    font-size: 1.2rem;
+    color: #FC5185; 
+    font-style: italic;
+}
+
+/* Subsection */
+.subsection {
+    margin-bottom: 50px;
+}
+
+.subsection h2 {
+    font-size: 1.8rem;
+    color: #3FC1C9;
+    margin-bottom: 15px;
+}
+
+.subsection p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #364F6B;
+    margin-bottom: 15px;
+    text-align: justify;
+    margin-right: 24px;
+}
+
+.subsection blockquote {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #FC5185;
+    margin: 20px 0;
+}
+/* End Subsection */
+
+/* --------------------------------------------- Final General Sections ------------------------------------------------------ */
+
+/* --------------------------------------------- Section 1 Introduction ------------------------------------------------------ */
+
+/* Image from the origins of the dance section */
+.origin-dance {
+    display: block; 
+    margin: 20px auto; 
+    max-width: 90%; 
+    height: auto; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Dance type cards */
+
+.dance-section {
+    padding: 20px;
+    text-align: center;
+}
+
+.dance-section h2 {
+    font-size: 2rem;
+    color: #364F6B;
+    margin-bottom: 20px;
+}
+ 
+.dance-card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px; 
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.dance-card {
+    border-left: 5px solid #FC5185;
+    background-color: #F9F9F9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dance-card img {
+    width: 100%; 
+    height: auto;
+    max-height: 200px; 
+    object-fit: cover;
+}
+
+.dance-card h3 {
+    font-size: 1.5rem;
+    color: #364F6B;
+    margin: 15px 0 10px;
+}
+
+.dance-card p {
+    padding: 0 15px 15px;
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.dance-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Specific style for each type of dance (optional) */
+.dance-historical {
+    border-top: 5px solid #8E44AD;
+}
+
+.dance-classical {
+    border-top: 5px solid #3498DB;
+}
+
+.dance-latin {
+    border-top: 5px solid #E74C3C;
+}
+
+.dance-modern {
+    border-top: 5px solid #1ABC9C;
+}
+
+.dance-ballet {
+    border-top: 5px solid #F1C40F;
+}
+
+.dance-urban {
+    border-top: 5px solid #2ECC71;
+}
+
+/* End Dance type cards */
+
+/* --------------------------------------------- Final Section 1 - Introduction ------------------------------------------------ */
+
+/* --------------------------------------------- Section 2 Definitions of dance ------------------------------------------------------ */
+.definitions-section {
+    height: 400px;
+}
+
+.carousel {
+    position: relative;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1rem;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+
+  .carousel-item {
+    display: none; 
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .carousel-item.active {
+    display: block; 
+    opacity: 1;
+  }
+  
+  blockquote {
+    font-style: italic;
+    font-size: 1.2rem;
+    margin: 0;
+  }
+  
+  cite {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: #3FC1C9;
+  }
+  
+  .carousel-item-personal {
+    color: #FC5185;
+  }
+  
+  .carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #888;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .carousel-control:hover {
+    color: #333;
+  }
+  
+  #prev {
+    left: 10px;
+  }
+  
+  #next {
+    right: 10px;
+  }
+  
+
+/* --------------------------------------------- End Section 2 Definitions of dance ------------------------------------------------------ */
+
+/* --------------------------------------------- Section 3 Contexts ------------------------------------------------------ */
+
+.context-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+}
+  
+.context-item {
+    background: linear-gradient(135deg, #fff, #f0f0f0);
+    border-radius: 15px 15px 5px 5px; /* Colțuri diferite */
+    padding: 2rem 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+  
+
+.context-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+  
+
+.context-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    color: #555;
+}
+  
+.context-item h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+  
+.context-item p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+} 
+  
+.cultural {
+    background: linear-gradient(135deg, #e8f5e9, #ffffff);
+    border-left: 5px solid #4CAF50; 
+}
+  
+.social {
+    background: linear-gradient(135deg, #e3f2fd, #ffffff);
+    border-left: 5px solid #2196F3; 
+}
+  
+.personal {
+    background: linear-gradient(135deg, #fff3e0, #ffffff);
+    border-left: 5px solid #FF9800; 
+}
+  
+.improbable {
+    background: linear-gradient(135deg, #f3e5f5, #ffffff);
+    border-left: 5px solid #9C27B0; 
+}
+  
+@media (max-width: 768px) {
+    #dance-contexts {
+      padding: 2rem 1rem;
+    }
+  
+    .context-item {
+      padding: 1.5rem 1rem;
+    }
+  
+    .section-intro {
+    font-size: 1rem;
+    }
+}
+  
+/* --------------------------------------------- Final Section 3 Contexts ------------------------------------------------ */
+
+/* --------------------------------------------- Section 4 Derivatives ------------------------------------------------------ */
+.lexical-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.lexical-item {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lexical-item h3 {
+    font-size: 1.5rem;
+    color: #364F6B;
+    margin-bottom: 10px;
+}
+
+.lexical-item p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.lexical-item strong {
+    color: #FC5185;
+}
+
+.lexical-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .lexical-grid {
+        grid-template-columns: 1fr; 
+    }
+}
+
+/* --------------------------------------------- Section 5 Conclusion ------------------------------------------------------ */
+#conclusion-section {
+    background: linear-gradient(135deg, #e3f2fd, #f9fbe7);
+    padding: 3rem 1rem; 
+    text-align: center; 
+  }
+  
+  .conclusion-card {
+    max-width: 700px; 
+    margin: 0 auto; 
+    padding: 2rem; 
+  }
+  
+  .conclusion-card h2 {
+    font-family: 'Poppins', sans-serif; 
+    font-size: 2rem; 
+    color: #FC5185; 
+    margin-bottom: 1rem; 
+    border-bottom: 2px solid #cfd8dc;
+    display: inline-block; 
+    padding-bottom: 0.5rem; 
+  }
+  
+  .conclusion-card p {
+    font-size: 1rem;
+    color: #364F6B; 
+    line-height: 1.6; 
+    margin: 0; 
+  }
+  
+/* --------------------------------------------- Final Section 5 Conclusion ------------------------------------------------ */
+
+
+/* --------------------------------------------- Footer ------------------------------------------------ */
+
+/* Footer */
+footer {
+    background: #364F6B;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+footer p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+}
+
+/* --------------------------------------------- Final Footer ------------------------------------------------ */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header .content h1 {
+        font-size: 3rem;
+    }
+
+    .header .content .cta-button {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+
+    .dots-navigation {
+        right: 15px;
+        gap: 10px;
+    }
+
+    .conclusion-card {
+        padding: 1.5rem; 
+      }
+    
+      .conclusion-card h2 {
+        font-size: 1.8rem; 
+      }
+    
+      .conclusion-card p {
+        font-size: 0.95rem; 
+      }
+}
+
+@media (max-width: 480px) {
+    .header .content h1 {
+        font-size: 2rem;
+    }
+
+    .header .content .cta-button {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+
+    .dots-navigation {
+        right: 10px;
+        gap: 20px; 
+    }
+
+    .dots-navigation .dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    .dance-card-container {
+        grid-template-columns: 1fr; 
+    }
+
+    .dance-card img {
+        max-height: 200px;
+    }
+
+    .dance-card h3 {
+        font-size: 1.25rem;
+    }
+
+    .dance-card p {
+        font-size: 0.9rem; 
+    }
+}
+
